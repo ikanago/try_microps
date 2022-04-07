@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: true
+
+    - name: Install cppcheck and cpplint
+      run: |
+        sudo apt install -y cppcheck
+        pip install cpplint
+
+    - name: Configure CMake
+      run: cmake -B ${{github.workspace}}/build
+
+    - name: Build
+      run: make -C ${{github.workspace}}/build -j
+
+    - name: Check format
+      run: cmake --build build --target format
+
+    - name: Lint
+      run: cmake --build build --target lint
+
+    - name: Test
+      run: cmake --build build --target test
