@@ -3,8 +3,8 @@
 #include <cstddef>
 #include <optional>
 
-auto parse_ip_address(const std::string& address) -> std::optional<ip_addr_t> {
-    ip_addr_t result = 0;
+auto mps::parse_ip_address(const std::string& address) -> std::optional<mps::ip_addr_t> {
+    mps::ip_addr_t result = 0;
     size_t has_read = 0;
 
     for (size_t i = 0; i < 4; i++) {

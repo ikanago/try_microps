@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.0)
 
 set(LIB_SRC
     ip.cc
+    socket.cc
+    udp.cc
     util.cc
 )
 

@@ -3,8 +3,9 @@ cmake_minimum_required(VERSION 3.0)
 add_executable(
     test_microps
     EXCLUDE_FROM_ALL
-    test_util.cc
     test_ip.cc
+    test_socket.cc
+    test_util.cc
 )
 target_compile_features(test_microps PUBLIC cxx_std_17)
 
